@@ -2,11 +2,18 @@ import os
 import aiohttp
 from os import getenv
 from dotenv import load_dotenv
-    
+
 if os.path.exists("Internal"):
     load_dotenv("Internal")
 
-aiohttpsession = aiohttp.ClientSession()
+aiohttpsession = None
+
+async def get_aiohttp_session():
+    global aiohttpsession
+    if aiohttpsession is None:
+        aiohttpsession = aiohttp.ClientSession()
+    return aiohttpsession
+
 admins = {}
 que = {}
 
@@ -17,7 +24,7 @@ STRING_SESSION = getenv("STRING_SESSION", "session")
 COMMAND_PREFIXES = list(getenv("COMMAND_PREFIXES", ". ! /").split())
 MONGO_DB_URL = getenv("MONGO_DB_URL", "")
 OWNER_ID = list(map(int, getenv("OWNER_ID", "5336023580").split()))
-LOG_GROUP_ID = int(getenv("LOG_GROUP_ID", ""))
+LOG_GROUP_ID = int(getenv("LOG_GROUP_ID", "0"))
 SUDO_USERS = list(map(int, getenv("SUDO_USERS", "5356564375").split()))
-UPSTREAM_REPO = getenv("UPSTREAM_REPO", "https://github.com/XdityaHalder/Genius-Userbot")
+UPSTREAM_REPO = getenv("UPSTREAM_REPO", "https://github.com/AsadbekRajabboyevv/Genius-Userbot")
 UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "aditya")
