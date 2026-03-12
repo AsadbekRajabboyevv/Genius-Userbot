@@ -1,4 +1,4 @@
-FROM python:3.10-slim
+FROM python:3.09-slim
 RUN apt-get update -y
 RUN apt-get install git curl python3-pip ffmpeg -y
 RUN python3 -m pip install --upgrade pip
