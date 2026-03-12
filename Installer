@@ -4,7 +4,7 @@ asyncio
 ffmpeg-python
 pillow
 pyrogram==1.4.16
-py-tgcalls==0.8.0
+py-tgcalls==0.5.5
 wget
 python-dotenv
 youtube-search-python
